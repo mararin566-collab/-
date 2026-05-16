@@ -1,0 +1,149 @@
+{
+  "display_name": "ผู้ช่วยสื่ออัจฉริยะ",
+  "loading_order": 50,
+  "requires": [],
+  "optional": [],
+  "js": "index.js",
+  "css": "style.css",
+  "author": "kencuo (แปลเป็นภาษาไทยโดย AI ด้วยอนุญาตจากผู้พัฒนา)",
+  "version": "1.1.0",
+  "homePage": "https://github.com/kencuo/chajian",
+  "description": "ปลั๊กอินประมวลผลสื่อ รองรับการปรับปรุงรูปภาพ, ประมวลผลเอกสาร, AI อ่านภาพ และอื่นๆ แก้ไขปัญหาไฟล์เอกสาร txt/json ถูกระบุผิดว่าเป็นรูปภาพ",
+  "tags": [
+    "media",
+    "image",
+    "document",
+    "ai",
+    "vision",
+    "file-processing"
+  ],
+  "features": [
+    "บีบอัดและปรับปรุงรูปภาพอัจฉริยะ",
+    "ประมวลผลเอกสารหลายรูปแบบ (txt, json, md, csv, html, xml และอื่นๆ)",
+    "AI ตรวจจับและวิเคราะห์รูปภาพ",
+    "ระบุประเภทไฟล์อัจฉริยะ",
+    "ประมวลผลไฟล์แบบกลุ่ม",
+    "รองรับการรวมกับแชท"
+  ],
+  "settings": [
+    {
+      "key": "enableImageProcessing",
+      "type": "checkbox",
+      "label": "เปิดใช้งานประมวลผลรูปภาพ",
+      "default": true,
+      "tooltip": "เปิดใช้งานการบีบอัด, ปรับปรุง และ AI อ่านรูปภาพ"
+    },
+    {
+      "key": "enableDocumentProcessing", 
+      "type": "checkbox",
+      "label": "เปิดใช้งานประมวลผลเอกสาร",
+      "default": true,
+      "tooltip": "เปิดใช้งานประมวลผลไฟล์เอกสาร txt, json และอื่นๆ"
+    },
+    {
+      "key": "imageQuality",
+      "type": "slider",
+      "label": "คุณภาพรูปภาพ",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "default": 85,
+      "tooltip": "คุณภาพการบีบอัดรูปภาพ ค่ายิ่งสูงคุณภาพยิ่งดี แต่ไฟล์ยิ่งใหญ่"
+    },
+    {
+      "key": "maxImageDimension",
+      "type": "number",
+      "label": "ขนาดสูงสุดของรูปภาพ",
+      "min": 512,
+      "max": 4096,
+      "default": 2048,
+      "tooltip": "ความกว้างหรือความสูงสูงสุดของรูปภาพ (พิกเซล)"
+    },
+    {
+      "key": "maxFileSize",
+      "type": "number", 
+      "label": "จำกัดขนาดไฟล์ (MB)",
+      "min": 1,
+      "max": 100,
+      "default": 20,
+      "tooltip": "ขนาดไฟล์สูงสุดที่อนุญาตให้ประมวลผล"
+    },
+    {
+      "key": "enableAIReading",
+      "type": "checkbox",
+      "label": "เปิดใช้งาน AI อ่านเอกสาร",
+      "default": true,
+      "tooltip": "ใช้ AI วิเคราะห์เนื้อหาเอกสารที่อัปโหลดอัตโนมัติ"
+    },
+    {
+      "key": "showProcessingInfo",
+      "type": "checkbox",
+      "label": "แสดงข้อมูลการประมวลผล",
+      "default": false,
+      "tooltip": "แสดงข้อมูลรายละเอียดและความคืบหน้าการประมวลผลไฟล์"
+    },
+    {
+      "key": "enableLogging",
+      "type": "checkbox",
+      "label": "เปิดใช้งานบันทึก Debug",
+      "default": false,
+      "tooltip": "แสดงข้อมูล debug รายละเอียดใน console"
+    }
+  ],
+  "supported_file_types": {
+    "images": [
+      "image/jpeg",
+      "image/png", 
+      "image/gif",
+      "image/webp",
+      "image/bmp"
+    ],
+    "documents": [
+      "text/plain",
+      "application/json",
+      "text/markdown",
+      "text/csv",
+      "text/html",
+      "text/xml",
+      "application/xml",
+      "text/javascript",
+      "application/javascript",
+      "text/css",
+      "application/rtf"
+    ]
+  },
+  "supported_extensions": {
+    "images": ["jpg", "jpeg", "png", "gif", "webp", "bmp"],
+    "documents": ["txt", "json", "md", "csv", "html", "xml", "js", "css", "rtf", "log", "conf", "config", "ini", "yaml", "yml"]
+  },
+  "api": {
+    "processFile": "window.__processFileByPlugin",
+    "processImage": "window.__uploadImageByPlugin", 
+    "processDocument": "window.__processDocumentByPlugin",
+    "isDocumentFile": "window.__isDocumentFile",
+    "getSupportedTypes": "window.__getSupportedFileTypes"
+  },
+  "changelog": [
+    {
+      "version": "2.0.0",
+      "date": "2024-08-02",
+      "changes": [
+        "แก้ไขปัญหาไฟล์เอกสาร txt/json ถูกระบุผิดว่าเป็นรูปภาพ",
+        "ปรับโครงสร้างตรรกะการระบุประเภทไฟล์ รองรับการระบุตามนามสกุล",
+        "รวมฟีเจอร์ประมวลผลรูปภาพและเอกสารเป็นปลั๊กอินเดียว",
+        "เพิ่มโครงสร้างปลั๊กอิน SillyTavern มาตรฐาน",
+        "ปรับปรุงการจัดการข้อผิดพลาดและ feedback ผู้ใช้",
+        "เพิ่มตัวเลือกการตั้งค่าและหน้าจอคอนฟิกรายละเอียด"
+      ]
+    },
+    {
+      "version": "1.0.0", 
+      "date": "2024-07-01",
+      "changes": [
+        "เวอร์ชันเริ่มต้น",
+        "ฟีเจอร์ประมวลผลรูปภาพพื้นฐาน",
+        "รองรับประมวลผลเอกสารเบื้องต้น"
+      ]
+    }
+  ]
+}
